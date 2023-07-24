@@ -1,0 +1,21 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Configure AWS Config
+    
+Resources:
+  CustomerCreatedConfigRecorderRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: aws-controltower-ConfigRecorderRole-customer-created
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - config.amazonaws.com
+            Action:
+              - sts:AssumeRole
+      Path: /
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWS_ConfigRole
+        - arn:aws:iam::aws:policy/ReadOnlyAccess

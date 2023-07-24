@@ -1,0 +1,5 @@
+  CustomerCreatedAggregationAuthorization:
+    Type: "AWS::Config::AggregationAuthorization"
+    Properties:
+      AuthorizedAccountId: AUDIT_ACCOUNT
+      AuthorizedAwsRegion: HOME_REGION

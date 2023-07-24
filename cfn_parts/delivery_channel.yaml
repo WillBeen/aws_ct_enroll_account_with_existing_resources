@@ -1,0 +1,9 @@
+  CustomerCreatedConfigDeliveryChannel:
+    Type: AWS::Config::DeliveryChannel
+    Properties:
+      Name: aws-controltower-BaselineConfigDeliveryChannel-customer-created
+      ConfigSnapshotDeliveryProperties:
+        DeliveryFrequency: TwentyFour_Hours
+      S3BucketName: aws-controltower-logs-LOGGING_ACCOUNT-HOME_REGION
+      S3KeyPrefix: ORGANIZATION_ID
+      SnsTopicARN: !Sub arn:aws:sns:${AWS::Region}:AUDIT_ACCOUNT:aws-controltower-AllConfigNotifications

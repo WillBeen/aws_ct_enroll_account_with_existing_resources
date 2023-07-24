@@ -1,0 +1,9 @@
+  CustomerCreatedConfigRecorder:
+    Type: AWS::Config::ConfigurationRecorder
+    Properties:
+      Name: aws-controltower-BaselineConfigRecorder-customer-created
+      RoleARN: !Sub arn:aws:iam::${AWS::AccountId}:role/aws-controltower-ConfigRecorderRole-customer-created
+      RecordingGroup:
+        AllSupported: true
+        IncludeGlobalResourceTypes: GLOBAL_RESOURCE_RECORDING
+        ResourceTypes: []
